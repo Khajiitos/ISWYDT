@@ -1,0 +1,28 @@
+modLoader = "javafml"
+loaderVersion = "${loader_version_range}"
+license = "MIT"
+issueTrackerURL = "https://github.com/Khajiitos/ISWYDT/issues"
+
+[[mods]]
+modId = "iswydt"
+version = "${version}"
+logoFile="icon.png"
+displayName = "I See What You Did There!"
+authors = "Khajiitos"
+displayURL="https://github.com/Khajiitos/ISWYDT"
+description = '''Makes mobs react to indirect damage sources, like fire or lava.'''
+displayTest = "IGNORE_SERVER_VERSION"
+
+[[dependencies.iswydt]]
+modId = "forge"
+mandatory = true
+versionRange = "${forge_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.iswydt]]
+modId = "minecraft"
+mandatory = true
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"

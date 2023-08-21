@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.khajiitos.iswydt.fabric.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "iswydt.refmap.json",
+  "mixins": [
+    "BucketItemMixin",
+    "FireChargeItemMixin",
+    "ItemUsedOnLocationTriggerMixin"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "iswydt",
+  "version": "${version}",
+  "name": "I See What You Did There!",
+  "description": "Makes mobs react to indirect damage sources, like fire or lava.",
+  "authors": ["Khajiitos"],
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "client",
+  "contact": {
+    "homepage": "https://github.com/Khajiitos/ISWYDT",
+    "sources": "https://github.com/Khajiitos/ISWYDT",
+    "issues": "https://github.com/Khajiitos/ISWYDT/issues"
+  },
+  "entrypoints": {
+    "client": [
+      "me.khajiitos.iswydt.fabric.ISeeWhatYouDidThereFabric"
+    ],
+    "modmenu": [
+      "me.khajiitos.iswydt.fabric.ModMenuApiImpl"
+    ]
+  },
+  "mixins": [
+    "iswydt.mixins.json",
+    "iswydt.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "fabric": "*",
+    "minecraft": "${minecraft_version_range}",
+    "java": ">=17"
+  }
+}
