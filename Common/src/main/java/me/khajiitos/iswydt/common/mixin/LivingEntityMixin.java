@@ -26,7 +26,7 @@ public abstract class LivingEntityMixin {
     public DamageSource aiStep(DamageSource oldDamageSource) {
         LivingEntity livingEntity = (LivingEntity)(Object)this;
 
-        LivingEntity fluidPlacer = FluidUtils.getPlacerOfTouchingFluid(livingEntity, FluidTags.LAVA);
+        LivingEntity fluidPlacer = FluidUtils.getPlacerOfTouchingFluid(livingEntity, FluidTags.WATER);
 
         if (fluidPlacer != null) {
             return new DamageSource(DamageUtils.getDamageTypeHolder(DamageTypes.DROWN, livingEntity.level().registryAccess()), null, fluidPlacer);
