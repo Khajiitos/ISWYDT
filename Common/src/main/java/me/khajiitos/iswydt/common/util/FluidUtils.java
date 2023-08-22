@@ -70,13 +70,13 @@ public class FluidUtils {
 
     public static List<Pair<BlockPos, FluidState>> getTouchingFluids(Entity entity) {
         return getTouchingBlockPositions(entity.getBoundingBox()).stream()
-                .map(blockPos -> Pair.of(blockPos, entity.level().getFluidState(blockPos)))
+                .map(blockPos -> Pair.of(blockPos, entity.level.getFluidState(blockPos)))
                 .filter(pair -> !pair.getSecond().isEmpty())
                 .toList();
     }
 
     public static List<Pair<BlockPos, FluidState>> getSourcesOfTouchingFluids(Entity entity) {
-        return getTouchingFluids(entity).stream().map(pair -> getSourceOrThis(entity.level(), pair.getFirst(), pair.getSecond())).collect(Collectors.toList());
+        return getTouchingFluids(entity).stream().map(pair -> getSourceOrThis(entity.level, pair.getFirst(), pair.getSecond())).collect(Collectors.toList());
     }
 
     public static LivingEntity getPlacerOfTouchingFluid(Entity entity, TagKey<Fluid> fluid) {
@@ -88,7 +88,7 @@ public class FluidUtils {
             if (fluidState.is(fluid)) {
                 for (HazardousActionRecord actionRecord : ISeeWhatYouDidThere.hazardousActions) {
                     if (actionRecord instanceof PlaceFluidRecord fluidRecord) {
-                        if (fluidRecord.getLevel() == entity.level() &&
+                        if (fluidRecord.getLevel() == entity.level &&
                                 fluidRecord.getBlockPos().equals(blockPos) && fluidRecord.getFluid().is(fluid)) {
                             return fluidRecord.getCausedBy();
                         }

@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Entity.class)
 public class EntityMixin {
-    @Shadow private Level level;
+    @Shadow public Level level;
 
     @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;push(DDD)V", ordinal = 0), method = "push(Lnet/minecraft/world/entity/Entity;)V")
     public void push(Entity other, CallbackInfo ci) {
@@ -39,7 +39,7 @@ public class EntityMixin {
         LivingEntity fluidPlacer = FluidUtils.getPlacerOfTouchingFluid(entity, FluidTags.LAVA);
 
         if (fluidPlacer != null) {
-            return new DamageSource(DamageUtils.getDamageTypeHolder(DamageTypes.LAVA, entity.level().registryAccess()), null, fluidPlacer);
+            return new DamageSource(DamageUtils.getDamageTypeHolder(DamageTypes.LAVA, entity.level.registryAccess()), null, fluidPlacer);
         }
 
         return oldDamageSource;

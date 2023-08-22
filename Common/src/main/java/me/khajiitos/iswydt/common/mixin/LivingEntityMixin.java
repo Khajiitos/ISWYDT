@@ -29,7 +29,7 @@ public abstract class LivingEntityMixin {
         LivingEntity fluidPlacer = FluidUtils.getPlacerOfTouchingFluid(livingEntity, FluidTags.WATER);
 
         if (fluidPlacer != null) {
-            return new DamageSource(DamageUtils.getDamageTypeHolder(DamageTypes.DROWN, livingEntity.level().registryAccess()), null, fluidPlacer);
+            return new DamageSource(DamageUtils.getDamageTypeHolder(DamageTypes.DROWN, livingEntity.level.registryAccess()), null, fluidPlacer);
         }
 
         return oldDamageSource;

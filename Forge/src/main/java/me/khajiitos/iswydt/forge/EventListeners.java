@@ -21,7 +21,7 @@ public class EventListeners {
     @SubscribeEvent
     public void onPlace(BlockEvent.EntityPlaceEvent e) {
         if (e.getEntity() instanceof LivingEntity living && e.getPlacedBlock().getBlock() instanceof BaseFireBlock) {
-            ISeeWhatYouDidThere.hazardousActions.add(new StartFireActionRecord(living, living.level(), e.getPos()));
+            ISeeWhatYouDidThere.hazardousActions.add(new StartFireActionRecord(living, living.level, e.getPos()));
         }
     }
 

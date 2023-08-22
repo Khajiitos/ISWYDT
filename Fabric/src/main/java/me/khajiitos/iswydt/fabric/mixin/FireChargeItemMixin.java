@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 @Mixin(FireChargeItem.class)
 public class FireChargeItemMixin {
 
-    @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;gameEvent(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/level/gameevent/GameEvent;Lnet/minecraft/core/BlockPos;)V", ordinal = 0), method = "useOn", locals = LocalCapture.CAPTURE_FAILHARD)
+    @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;gameEvent(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/level/gameevent/GameEvent;Lnet/minecraft/core/BlockPos;)V"), method = "useOn", locals = LocalCapture.CAPTURE_FAILHARD)
     public void onUse(UseOnContext useOnContext, CallbackInfoReturnable<InteractionResult> cir, Level level, BlockPos blockPos, BlockState blockState, boolean bl) {
         if (level instanceof ServerLevel) {
             ISeeWhatYouDidThere.hazardousActions.add(new StartFireActionRecord(useOnContext.getPlayer(), level, blockPos));

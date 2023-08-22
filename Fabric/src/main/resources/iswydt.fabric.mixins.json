@@ -10,6 +10,6 @@
   "mixins": [
     "BucketItemMixin",
     "FireChargeItemMixin",
-    "ItemUsedOnLocationTriggerMixin"
+    "PlacedBlockTriggerMixin"
   ]
 }
