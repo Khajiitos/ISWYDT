@@ -22,6 +22,8 @@ public class Config {
         public int fireRememberTicks = 200;
         public int fluidRememberTicks = 200;
         public int pushRememberTicks = 80;
+        public int placeAnvilRememberTicks = 300;
+        public int igniteCreeperRememberTicks = 150;
     }
 
     public static void load() {
@@ -39,6 +41,14 @@ public class Config {
 
                 if (object.has("pushRememberTicks")) {
                     cfg.pushRememberTicks = object.get("pushRememberTicks").getAsInt();
+                }
+
+                if (object.has("placeAnvilRememberTicks")) {
+                    cfg.placeAnvilRememberTicks = object.get("placeAnvilRememberTicks").getAsInt();
+                }
+
+                if (object.has("igniteCreeperRememberTicks")) {
+                    cfg.igniteCreeperRememberTicks = object.get("igniteCreeperRememberTicks").getAsInt();
                 }
             } catch (JsonSyntaxException e) {
                 ISeeWhatYouDidThere.LOGGER.error("Config is not valid JSON");
@@ -58,6 +68,8 @@ public class Config {
             object.addProperty("fireRememberTicks", cfg.fireRememberTicks);
             object.addProperty("fluidRememberTicks", cfg.fluidRememberTicks);
             object.addProperty("pushRememberTicks", cfg.pushRememberTicks);
+            object.addProperty("placeAnvilRememberTicks", cfg.placeAnvilRememberTicks);
+            object.addProperty("igniteCreeperRememberTicks", cfg.igniteCreeperRememberTicks);
 
             fileWriter.write(GSON.toJson(object));
         } catch (IOException e) {

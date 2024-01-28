@@ -8,6 +8,7 @@
   },
   "refmap": "iswydt.refmap.json",
   "mixins": [
+    "BlockItemMixin",
     "BucketItemMixin",
     "FireChargeItemMixin",
     "ItemUsedOnLocationTriggerMixin"

@@ -1,8 +1,10 @@
 package me.khajiitos.iswydt.forge;
 
 import me.khajiitos.iswydt.common.ISeeWhatYouDidThere;
+import me.khajiitos.iswydt.common.action.PlaceAnvilRecord;
 import me.khajiitos.iswydt.common.action.StartFireActionRecord;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.block.AnvilBlock;
 import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.level.BlockEvent;
@@ -20,8 +22,12 @@ public class EventListeners {
 
     @SubscribeEvent
     public void onPlace(BlockEvent.EntityPlaceEvent e) {
-        if (e.getEntity() instanceof LivingEntity living && e.getPlacedBlock().getBlock() instanceof BaseFireBlock) {
-            ISeeWhatYouDidThere.hazardousActions.add(new StartFireActionRecord(living, living.level(), e.getPos()));
+        if (e.getEntity() instanceof LivingEntity living) {
+            if (e.getPlacedBlock().getBlock() instanceof BaseFireBlock) {
+                ISeeWhatYouDidThere.hazardousActions.add(new StartFireActionRecord(living, living.level(), e.getPos()));
+            } else if (e.getPlacedBlock().getBlock() instanceof AnvilBlock) {
+                ISeeWhatYouDidThere.hazardousActions.add(new PlaceAnvilRecord(living, living.level(), e.getPos()));
+            }
         }
     }
 

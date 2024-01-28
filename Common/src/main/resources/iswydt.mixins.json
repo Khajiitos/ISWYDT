@@ -10,8 +10,12 @@
   "mixins": [
     "BaseFireBlockMixin",
     "BlockMixin",
+    "CreeperMixin",
     "EnderManMixin",
     "EntityMixin",
+    "FallingBlockEntityMixin",
+    "FallingBlockMixin",
+    "LevelMixin",
     "LivingEntityMixin"
   ]
 }
