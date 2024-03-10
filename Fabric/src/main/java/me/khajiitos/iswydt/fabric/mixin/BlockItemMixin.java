@@ -21,7 +21,7 @@ public abstract class BlockItemMixin {
     @Inject(at = @At("TAIL"), method = "place")
     public void onPlace(BlockPlaceContext blockPlaceContext, CallbackInfoReturnable<InteractionResult> cir) {
         if (this.getBlock() instanceof AnvilBlock) {
-            ISeeWhatYouDidThere.hazardousActions.add(new PlaceAnvilRecord(blockPlaceContext.getPlayer(), blockPlaceContext.getLevel(), blockPlaceContext.getClickedPos()));
+            ISeeWhatYouDidThere.addHazardousActionServer(new PlaceAnvilRecord(blockPlaceContext.getPlayer(), blockPlaceContext.getLevel(), blockPlaceContext.getClickedPos()));
         }
     }
 }

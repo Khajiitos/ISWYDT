@@ -16,6 +16,6 @@ public class CreeperMixin {
 
     @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/Creeper;ignite()V"), method = "mobInteract")
     public void onIgnite(Player player, InteractionHand interactionHand, CallbackInfoReturnable<InteractionResult> cir) {
-        ISeeWhatYouDidThere.hazardousActions.add(new IgniteCreeperRecord(player, (Creeper)(Object)this));
+        ISeeWhatYouDidThere.addHazardousActionServer(new IgniteCreeperRecord(player, (Creeper)(Object)this));
     }
 }

@@ -26,7 +26,7 @@ public class FallingBlockMixin {
             for (HazardousActionRecord hazardousActionRecord : ISeeWhatYouDidThere.hazardousActions) {
                 if (hazardousActionRecord instanceof PlaceAnvilRecord placeAnvilRecord) {
                     if (placeAnvilRecord.getLevel() == serverLevel && placeAnvilRecord.getBlockPos().equals(pos)) {
-                        ISeeWhatYouDidThere.hazardousActions.add(new CauseAnvilToFallRecord(placeAnvilRecord.getCausedBy(), fallingBlockEntity));
+                        ISeeWhatYouDidThere.addHazardousActionServer(new CauseAnvilToFallRecord(placeAnvilRecord.getCausedBy(), fallingBlockEntity));
                         break;
                     }
                 }

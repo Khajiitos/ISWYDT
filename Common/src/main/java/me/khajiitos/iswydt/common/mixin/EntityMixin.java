@@ -28,7 +28,7 @@ public class EntityMixin {
 
         if (!this.level.isClientSide && thisEntity instanceof LivingEntity living && other instanceof LivingEntity otherLiving) {
             ISeeWhatYouDidThere.hazardousActions.removeIf(action -> action instanceof PushActionRecord pushAction && pushAction.getOther() == otherLiving);
-            ISeeWhatYouDidThere.hazardousActions.add(new PushActionRecord(living, otherLiving, Config.cfg.pushRememberTicks));
+            ISeeWhatYouDidThere.addHazardousActionServer(new PushActionRecord(living, otherLiving, Config.cfg.pushRememberTicks));
         }
     }
 

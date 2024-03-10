@@ -23,7 +23,7 @@ public class ItemUsedOnLocationTriggerMixin {
         BlockState blockState = level.getBlockState(blockPos);
 
         if (blockState.getBlock() instanceof BaseFireBlock) {
-            ISeeWhatYouDidThere.hazardousActions.add(new StartFireActionRecord(player, level, blockPos));
+            ISeeWhatYouDidThere.addHazardousActionServer(new StartFireActionRecord(player, level, blockPos));
         }
     }
 }

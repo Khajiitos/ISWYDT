@@ -11,6 +11,7 @@ displayName = "I See What You Did There!"
 authors = "Khajiitos"
 displayURL="https://github.com/Khajiitos/ISWYDT"
 description = '''Makes mobs react to indirect damage sources, like fire or lava.'''
+updateJSONURL = "https://updates.khajiitos.fun/iswydt/updates-forge.json"
 displayTest = "IGNORE_SERVER_VERSION"
 
 [[dependencies.iswydt]]

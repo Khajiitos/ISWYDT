@@ -23,14 +23,14 @@ public class BucketItemMixin {
     @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/BucketItem;playEmptySound(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;)V", ordinal = 0), method = "emptyContents")
     public void onEmptyOnWaterloggable(Player player, Level level, BlockPos blockPos, BlockHitResult blockHitResult, CallbackInfoReturnable<Boolean> cir) {
         if (!level.isClientSide) {
-            ISeeWhatYouDidThere.hazardousActions.add(new PlaceFluidRecord(player, this.content, level, blockPos));
+            ISeeWhatYouDidThere.addHazardousActionServer(new PlaceFluidRecord(player, this.content, level, blockPos));
         }
     }
 
     @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/BucketItem;playEmptySound(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;)V", ordinal = 1), method = "emptyContents")
     public void onEmpty(Player player, Level level, BlockPos blockPos, BlockHitResult blockHitResult, CallbackInfoReturnable<Boolean> cir) {
         if (!level.isClientSide) {
-            ISeeWhatYouDidThere.hazardousActions.add(new PlaceFluidRecord(player, this.content, level, blockPos));
+            ISeeWhatYouDidThere.addHazardousActionServer(new PlaceFluidRecord(player, this.content, level, blockPos));
         }
     }
 }

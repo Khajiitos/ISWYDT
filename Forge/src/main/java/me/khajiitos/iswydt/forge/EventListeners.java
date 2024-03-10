@@ -24,9 +24,9 @@ public class EventListeners {
     public void onPlace(BlockEvent.EntityPlaceEvent e) {
         if (e.getEntity() instanceof LivingEntity living) {
             if (e.getPlacedBlock().getBlock() instanceof BaseFireBlock) {
-                ISeeWhatYouDidThere.hazardousActions.add(new StartFireActionRecord(living, living.level(), e.getPos()));
+                ISeeWhatYouDidThere.addHazardousActionServer(new StartFireActionRecord(living, living.level(), e.getPos()));
             } else if (e.getPlacedBlock().getBlock() instanceof AnvilBlock) {
-                ISeeWhatYouDidThere.hazardousActions.add(new PlaceAnvilRecord(living, living.level(), e.getPos()));
+                ISeeWhatYouDidThere.addHazardousActionServer(new PlaceAnvilRecord(living, living.level(), e.getPos()));
             }
         }
     }
